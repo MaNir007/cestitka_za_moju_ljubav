@@ -111,6 +111,10 @@ h1 {
     transform: translateY(-8px);
 }
 
+.envelope-wrapper.open {
+    z-index: 50;
+}
+
 .envelope-back {
     position: absolute;
     bottom: 0;
@@ -291,32 +295,52 @@ h1 {
 
 /* NOVI MOBILE FIX */
 @media (max-width: 600px) {
+    body {
+        justify-content: flex-start;
+        height: auto;
+        padding-top: 20px;
+    }
+
     h1 {
-        font-size: 2rem;
-        margin-bottom: 30px;
-        padding: 0 10px;
+        font-size: 1.8rem;
+        margin-top: 40px;
+        margin-bottom: 40px;
+        padding: 0 15px;
     }
 
     .letters-container {
-        gap: 100px;
-        /* Smanjen razmak da oba pismo stanu na ekran */
-        padding-top: 40px;
+        gap: 60px;
+        padding-top: 80px;
+        /* Više mjesta gore da pismo ne izlazi */
+        padding-bottom: 100px;
+        flex-direction: column;
+        align-items: center;
     }
 
     .envelope-wrapper {
-        transform: scale(0.75);
-        /* Malo jače smanjeno za bolje poravnanje */
+        transform: scale(0.8);
+        margin-bottom: 20px;
+    }
+
+    .envelope-wrapper.open {
+        z-index: 100;
+        /* Pismo koje se čita mora biti iznad svega */
     }
 
     .envelope-wrapper.open .letter {
-        transform: translateY(-40%) translateY(-5px);
-        /* Manji pomak prema gore da ne udara u rub */
-        height: 320px;
-        /* Niže pismo za mobitel */
+        transform: translateY(-20%);
+        height: 280px;
+    }
+
+    .letter-content {
+        font-size: 1rem;
+        padding: 10px;
     }
 
     .floral-corner {
-        width: 120px;
-        height: 120px;
+        width: 100px;
+        height: 100px;
+        opacity: 0.4;
+        /* Manje nametljivo na mobitelu */
     }
 }
