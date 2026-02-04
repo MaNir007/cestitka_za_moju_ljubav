@@ -70,7 +70,6 @@ body::before {
     top: -50px;
     left: -50px;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M20,50 Q10,20 40,30 T70,10 T90,40 T60,70 T30,90 T10,60' fill='none' stroke='%23ffb7c5' stroke-width='2'/%3E%3Cpath d='M20,50 Q30,60 40,50 T60,40 T80,50' fill='%23ffccd5' opacity='0.5'/%3E%3Ccircle cx='30' cy='30' r='10' fill='%23ff4d6d' opacity='0.2'/%3E%3Ccircle cx='80' cy='20' r='15' fill='%23c9184a' opacity='0.1'/%3E%3C/svg%3E");
-    transform: rotate(0deg);
 }
 
 .floral-corner.bottom-right {
@@ -290,17 +289,34 @@ h1 {
     }
 }
 
+/* NOVI MOBILE FIX */
 @media (max-width: 600px) {
-    .envelope-wrapper {
-        transform: scale(0.8);
+    h1 {
+        font-size: 2rem;
+        margin-bottom: 30px;
+        padding: 0 10px;
     }
 
     .letters-container {
-        gap: 140px;
+        gap: 100px;
+        /* Smanjen razmak da oba pismo stanu na ekran */
+        padding-top: 40px;
+    }
+
+    .envelope-wrapper {
+        transform: scale(0.75);
+        /* Malo jače smanjeno za bolje poravnanje */
+    }
+
+    .envelope-wrapper.open .letter {
+        transform: translateY(-40%) translateY(-5px);
+        /* Manji pomak prema gore da ne udara u rub */
+        height: 320px;
+        /* Niže pismo za mobitel */
     }
 
     .floral-corner {
-        width: 150px;
-        height: 150px;
+        width: 120px;
+        height: 120px;
     }
 }
